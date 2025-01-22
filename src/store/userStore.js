@@ -25,7 +25,7 @@ export const userStore = create((set)=>({
         try {
             const res = await axiosInstance.put("/user/update-username", data)
 
-            if(res.success === true) return toast.success("username is updated")
+            if(res.data.success === true) return toast.success("username is updated")
         } catch (error) {
             toast.error("your username is updated failed")
         }
@@ -35,7 +35,7 @@ export const userStore = create((set)=>({
         try {
             const res = await axiosInstance.put("/user/update-gender", data)
 
-            if(res.success === true) return toast.success("gender is updated")
+            if(res.data.success === true) return toast.success("gender is updated")
         } catch (error) {
             toast.error("your gender is updated failed")
         }
@@ -46,7 +46,7 @@ export const userStore = create((set)=>({
         try {
             const res = await axiosInstance.put("/user/update-dateOfbirth", data)
 
-            if(res.success === true) return toast.success("dateOfbirth is updated")
+            if(res.data.success === true) return toast.success("dateOfbirth is updated")
         } catch (error) {
             toast.error("your dateOfbirth is updated failed")
         }

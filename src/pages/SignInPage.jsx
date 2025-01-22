@@ -62,7 +62,7 @@ function SignInPage() {
           </div>
 
 
-          <p className='text-sm text-center text-base-content mt-4'>Don't have an account? <Link className='link-hover link-primary ml-1' to={"signup"}>signup</Link></p>
+          <p className='text-sm text-center text-base-content mt-4'>Don't have an account? <Link className='link-hover link-primary ml-1' to={"/signup"}>signup</Link></p>
         </form>
       </div>
         <StyleIngSingLeftSide />

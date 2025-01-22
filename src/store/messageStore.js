@@ -37,7 +37,7 @@ export const messageStore = create((set, get) => ({
             set((state) => ({
                 messages: [...state.messages, newMessage]
             }))
-            
+
         } catch (error) {
             console.log(error.response.data.message)
         }
@@ -76,18 +76,18 @@ export const messageStore = create((set, get) => ({
             console.log(error.response.data.message)
         }
     },
-    subscribeToMessages:()=>{
-        const {selectUserData,socket,messages} = get()
-        if(!selectUserData) return ;
-        socket.on("newMessage",(newMessage)=>{
+    subscribeToMessages: () => {
+        const { selectUserData, socket, messages } = get()
+        if (!selectUserData) return;
+        socket.on("newMessage", (newMessage) => {
             console.log("new message ", newMessage)
             set((state) => ({
                 messages: [...state.messages, newMessage]
             }))
         })
     },
-    UnsubscribeToMessages:()=>{
-        const {socket} = get()
+    UnsubscribeToMessages: () => {
+        const { socket } = get()
         socket.off("newMessage")
     },
     resetMessages: () => {
@@ -104,10 +104,11 @@ export const messageStore = create((set, get) => ({
         const socket = io(BASE_URL, {
             query: {
                 userId: authUser._id
-            }
+            },
+            withCredentials: true,
         })
 
-        set({socket:socket})
+        set({ socket: socket })
         socket.connect();
 
         socket.on("getOnlineUsers", (userIds) => {
